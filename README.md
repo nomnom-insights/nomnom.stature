@@ -24,5 +24,8 @@ See [here](doc/metrics.md)
 
 ## Release notes
 
+### v1.0.3 (10.9.2018)
+Fix deploy-repositories setting
+
 ### v1.0.2 (10.9.2018)
 Open source nomnom/stature library
