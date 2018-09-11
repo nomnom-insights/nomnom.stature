@@ -1,4 +1,4 @@
-(defproject nomnom/stature "1.0.3"
+(defproject nomnom/stature "1.0.4"
   :description "Componentized StatsD client for Clojure"
   :url "https://github.com/nomnom-insights/nomnom.stature"
   :dependencies [[org.clojure/clojure "1.9.0"]

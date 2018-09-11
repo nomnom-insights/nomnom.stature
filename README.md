@@ -2,7 +2,10 @@
 
 <img src="https://i.annihil.us/u/prod/marvel/i/mg/3/60/527413be6077d/standard_xlarge.jpg" align="right"  height="200px" />
 
-Component friendly statsd client for Clojure
+Component friendly StatsD client for Clojure
+
+[![CircleCI](https://circleci.com/gh/nomnom-insights/nomnom.stature.svg?style=svg)](https://circleci.com/gh/nomnom-insights/nomnom.stature)
+
 
 ## Usage
 
@@ -23,6 +26,9 @@ Component friendly statsd client for Clojure
 See [here](doc/metrics.md)
 
 ## Release notes
+
+### v1.0.4 (11.9.2018)
+Add build status
 
 ### v1.0.3 (10.9.2018)
 Fix deploy-repositories setting
