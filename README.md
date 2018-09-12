@@ -11,7 +11,7 @@ Component friendly StatsD client for Clojure
 
 **Leiningen** (via [Clojars](https://clojars.org/nomnom/stature))
 
-![](https://img.shields.io/clojars/v/nomnom/stature.svg)
+[![](https://img.shields.io/clojars/v/nomnom/stature.svg)](https://clojars.org/nomnom/stature)
 
 
 **REPL**
@@ -26,6 +26,9 @@ Component friendly StatsD client for Clojure
 See [here](doc/metrics.md)
 
 ## Release notes
+
+#### v1.0.5 (12.9.2018)
+Move tools.logging and component dependencies to main dependency list
 
 ### v1.0.4 (11.9.2018)
 Add build status
