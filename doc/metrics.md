@@ -41,17 +41,17 @@ and it rethrows the exception
 ```clojure
 
 (require '[stature.metrics :as metrics]
-         '[stature.protocol :as protocol]
+         '[stature.metrics.protocol :as metrics.protocol]
          '[com.stuartsierra.component :as component])
 
 
 (def metrics (-> (metrics/create {:host "statsd.internal" :port 8122 :prefix *ns*})
                  (component/start)))
 
-(protocol/count metrics "foo.bar")
-(protocol/gauge metrics "foo.baz" 42)
+(metrics.protocol/count metrics "foo.bar")
+(metrics.protocol/gauge metrics "foo.baz" 42)
 
-(protocol/with-timing metrics "some.timing"
+(metrics/with-timing metrics "some.timing"
   (do-expensive-work))
 
 (metrics/count-on-exception "foo.bar.failure"
@@ -82,7 +82,7 @@ You can use Stature without relying on Component with this wrapper namespace:
 ```clojure
 
 (require '[stature.metrics :as metrics]
-         '[stature.protocol :as protocol])
+         '[stature.metrics.protocol :as protocol])
 
 ;; setup a client instance, but do not start it
 (def client (atom (metrics/create {:host "127.0.0.1"
