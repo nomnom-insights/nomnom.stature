@@ -36,6 +36,8 @@ Additionally following macros can be used with MetricsComponent:
 - `count-on-exception` macro increments counter in case exception thrown during form evaluation
 and it rethrows the exception
 
+Both macros live in the `stature.metrics.protocol` namespace (since you need that NS to invoke protocol methods anyway)
+
 ### Usage
 
 ```clojure
@@ -51,10 +53,10 @@ and it rethrows the exception
 (metrics.protocol/count metrics "foo.bar")
 (metrics.protocol/gauge metrics "foo.baz" 42)
 
-(metrics/with-timing metrics "some.timing"
+(metrics.protocol/with-timing metrics "some.timing"
   (do-expensive-work))
 
-(metrics/count-on-exception "foo.bar.failure"
+(metrics.protocol/count-on-exception "foo.bar.failure"
   (some-remote-call-that-fails)) ;; -> will increment foo.bar.failure counter if exception is thrown
 
 ```
@@ -114,9 +116,9 @@ You can use Stature without relying on Component with this wrapper namespace:
   (protocol/timing @client key value))
 
 (defmacro with-timing [key & body]
-  `(metrics/with-timing @client ~key ~@body))
+  `(protocol/with-timing @client ~key ~@body))
 
 (defmacro count-on-exception [key & body]
-  `(metrics/count-on-exception @client ~key ~@body))
+  `(protocol/count-on-exception @client ~key ~@body))
 
 ```

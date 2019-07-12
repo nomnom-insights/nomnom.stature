@@ -18,23 +18,36 @@ Component friendly StatsD client for Clojure
 
 ```clojure
 (require '[stature.metrics :as m]
-         '[stature.protocol :as p])
+         '[stature.netrics.protocol :as p])
 ```
 
 ## Metric component
 
-See [here](doc/metrics.md)
+See [here](doc/readme.md)
 
 ## Release notes
 
-#### v1.0.5 (12.9.2018)
-Move tools.logging and component dependencies to main dependency list
+#### v2.0.0 2019-07-12
 
-### v1.0.4 (11.9.2018)
-Add build status
+No new features.
 
-### v1.0.3 (10.9.2018)
-Fix deploy-repositories setting
+Reorganized `stature.metrics` namespace and moved utility macros to `stature.metrics.protocol` to
+make it easier to use the component.
 
-### v1.0.2 (10.9.2018)
-Open source nomnom/stature library
+Updated dependencies.
+
+#### v1.0.5 2018-09-12
+
+Moved tools.logging and component dependencies to main dependency list
+
+### v1.0.4 2018-09-11
+
+Added build status
+
+### v1.0.3 2018-09-10
+
+Fixed deploy-repositories setting
+
+### v1.0.2 2018-09-10
+
+Open sourced nomnom/stature library

@@ -45,24 +45,3 @@
          (number? (:port opts))
          (string? (:prefix opts))]}
   (map->MetricsComponent (merge opts {:client nil})))
-
-(defmacro with-timing
-  "Nice macro to record timing of a given form."
-  [^MetricsComponent statsd ^String key & body]
-  `(let [start-time# ^Long (System/currentTimeMillis)
-         return# (do
-                   ~@body)
-         time# ^Long (- (System/currentTimeMillis) start-time#)]
-     (protocol/timing ~statsd ~key time#)
-     return#))
-
-(defmacro count-on-exception
-  "Evaluates the body and if an exception is thrown
-   it increments a counter and re-throws it"
-  [^MetricsComponent statsd ^String key & body]
-  `(try
-     (do
-       ~@body)
-     (catch Exception err#
-       (protocol/count ~statsd ~key)
-       (throw err#))))
