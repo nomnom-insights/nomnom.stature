@@ -9,11 +9,11 @@
 (defrecord MetricsComponent [host port prefix client]
   component/Lifecycle
   (start [c]
-    (let [builder (-> (NonBlockingStatsDClientBuilder.)
-                      (.prefix prefix)
-                      (.hostname host)
-                      (.port port)
-                      (.resolve))
+    (let [builder (.. (NonBlockingStatsDClientBuilder.)
+                      (prefix prefix)
+                      (hostname host)
+                      (port port)
+                      (resolve))
           client (NonBlockingStatsDClient. builder)]
       (assoc c :client client)))
   (stop [c]
