@@ -15,7 +15,8 @@
          (map #(str/split %  #":")))))
 
 
-(defn start [server-port data-store]
+(defn start
+  [server-port data-store]
   (let [server-socket @(udp/socket {:port server-port})]
     (->> server-socket
          (s/map parse-statsd-packet)
@@ -25,5 +26,6 @@
     server-socket))
 
 
-(defn stop [sock]
+(defn stop
+  [sock]
   (s/close! sock))

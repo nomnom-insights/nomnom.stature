@@ -1,10 +1,20 @@
 (ns stature.metrics.protocol
   (:refer-clojure :exclude [count]))
 
+
 (defprotocol Metrics
-  (count [this key] "Increment a counter")
-  (gauge [this key val] "Set gauge value")
-  (timing [this key val] "Record timing"))
+
+  (count
+    [this key]
+    "Increment a counter")
+
+  (gauge
+    [this key val]
+    "Set gauge value")
+
+  (timing
+    [this key val]
+    "Record timing"))
 
 
 (defmacro with-timing
@@ -16,6 +26,7 @@
          time# ^Long (- (System/currentTimeMillis) start-time#)]
      (timing ~statsd ~key time#)
      return#))
+
 
 (defmacro count-on-exception
   "Evaluates the body and if an exception is thrown
