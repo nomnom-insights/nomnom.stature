@@ -2,19 +2,18 @@
   (:refer-clojure :exclude [count])
   (:require [stature.metrics.protocol :as protocol]
             [com.stuartsierra.component :as component])
-  (:import [com.timgroup.statsd StatsDClient NonBlockingStatsDClient NonBlockingStatsDClientBuilder]))
+  (:import [com.timgroup.statsd NonBlockingStatsDClient NonBlockingStatsDClientBuilder]))
 
 (def ^:final ^:private empty-tags (make-array String 0))
 
 (defrecord MetricsComponent [host port prefix client]
   component/Lifecycle
   (start [c]
-    (let [^NonBlockingStatsDClientBuilder builder (.. (NonBlockingStatsDClientBuilder.)
-                      (prefix prefix)
-                      (hostname host)
-                      (port port)
-                      (build))
-          ^StatsDClient client (NonBlockingStatsDClient. builder)]
+    (let [^NonBlockingStatsDClient client (.. (NonBlockingStatsDClientBuilder.)
+                                              (prefix prefix)
+                                              (hostname host)
+                                              (port port)
+                                              (build))]
       (assoc c :client client)))
   (stop [c]
     (when (:client c)
