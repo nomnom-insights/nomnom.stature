@@ -1,10 +1,10 @@
-(defproject nomnom/stature "2.0.0"
+(defproject nomnom/stature "2.0.1-SNAPSHOT-1"
   :description "Componentized StatsD client for Clojure"
   :url "https://github.com/nomnom-insights/nomnom.stature"
-  :dependencies [[org.clojure/clojure "1.10.1"]
-                 [org.clojure/tools.logging "0.5.0-alpha.1"]
-                 [com.stuartsierra/component "0.4.0"]
-                 [com.datadoghq/java-dogstatsd-client "2.8"]]
+  :dependencies [[org.clojure/clojure "1.10.3"]
+                 [org.clojure/tools.logging "1.1.0"]
+                 [com.stuartsierra/component "1.0.0"]
+                 [com.datadoghq/java-dogstatsd-client "3.0.0"]]
   :deploy-repositories {"clojars" {:sign-releases false}}
   :min-lein-version "2.0.0"
   :license {:name "MIT License"
