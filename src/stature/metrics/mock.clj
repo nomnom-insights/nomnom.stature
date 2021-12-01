@@ -8,11 +8,11 @@
   (start [this] this)
   (stop [this] this)
   protocol/Metrics
-  (count [this key]
+  (count [_this key]
     (log/debugf "%s incr" key))
-  (gauge [this key val]
+  (gauge [_this key val]
     (log/debugf "%s g:%s" key val))
-  (timing [this key val]
+  (timing [_this key val]
     (log/debugf "%s t:%s" key val)))
 
 (defn create []

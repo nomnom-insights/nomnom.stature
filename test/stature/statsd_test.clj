@@ -1,5 +1,5 @@
 (ns stature.statsd-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest is testing use-fixtures]]
             [stature.metrics.protocol :as protocol]
             [stature.metrics :as metrics]
             [stature.helper.statsd-server :as server]))

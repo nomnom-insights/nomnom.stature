@@ -21,18 +21,18 @@
     (assoc c :client nil))
 
   protocol/Metrics
-  (count [c key]
+  (count [_ key]
     (.incrementCounter ^NonBlockingStatsDClient client
                        ^String (name key)
                        empty-tags)
     key)
-  (gauge [c key val]
+  (gauge [_ key val]
     (.gauge ^NonBlockingStatsDClient client
             ^String (name key)
             ^double val
             empty-tags)
     val)
-  (timing [c key val]
+  (timing [_ key val]
     (.recordExecutionTime ^NonBlockingStatsDClient client
                           ^String (name key)
                           ^double val

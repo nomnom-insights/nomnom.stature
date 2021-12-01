@@ -9,7 +9,7 @@
 
 (defmacro with-timing
   "Nice macro to record timing of a given form."
-  [statsd ^String key & body]
+  [statsd key & body]
   `(let [start-time# ^Long (System/currentTimeMillis)
          return# (do
                    ~@body)
@@ -20,7 +20,7 @@
 (defmacro count-on-exception
   "Evaluates the body and if an exception is thrown
    it increments a counter and re-throws it"
-  [statsd ^String key & body]
+  [statsd key & body]
   `(try
      (do
        ~@body)
