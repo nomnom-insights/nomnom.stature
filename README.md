@@ -27,6 +27,11 @@ See [here](doc/readme.md)
 
 ## Release notes
 
+
+#### v2.0.1 2021-12-02
+
+Updated depdencies & migrated CI to GitHub Actions.
+
 #### v2.0.0 2019-07-12
 
 No new features.
