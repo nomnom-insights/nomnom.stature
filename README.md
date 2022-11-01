@@ -1,3 +1,5 @@
+# :warning: This library is no longer maintained
+
 # stature
 
 <img src="https://i.annihil.us/u/prod/marvel/i/mg/3/60/527413be6077d/standard_xlarge.jpg" align="right"  height="200px" />
